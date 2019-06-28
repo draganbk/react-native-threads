@@ -1,7 +1,9 @@
-# react-native-threads
+# rn-threads
 
 [![npm version](https://img.shields.io/npm/v/react-native-threads.svg?style=flat-square)](https://www.npmjs.com/package/react-native-threads)
 [![downloads](https://img.shields.io/npm/dm/react-native-threads.svg?style=flat-square)](https://www.npmjs.com/package/react-native-threads)
+
+This is fork from react-native-threads
 
 Spawn new react native JavaScript processes for CPU intensive work outside of your
 main UI JavaScript process.
@@ -15,11 +17,11 @@ and I recommend you investigate those thoroughly before using this library.
 
 ## Getting started
 
-`$ npm install react-native-threads --save`
+`$ npm install rn-threads --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-threads`
+`$ react-native link rn-threads`
 
 ### Android
 
@@ -49,7 +51,7 @@ like this:
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-threads` and add `RNThread.xcodeproj`
+2. Go to `node_modules` ➜ `rn-threads` and add `RNThread.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNThread.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -66,12 +68,12 @@ like this:
 
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-threads'
-  	project(':react-native-threads').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-threads/android')
+  	include ':rn-threads'
+  	project(':rn-threads').projectDir = new File(rootProject.projectDir, 	'../node_modules/rn-threads/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-threads')
+      compile project(':rn-threads')
   	```
 
 #### Windows
@@ -79,7 +81,7 @@ Windows support is not yet implemented, but PRs are welcome if you want to give 
 
 [Read it! :D](https://github.com/ReactWindows/react-native)
 
-1. In Visual Studio add the `RNThread.sln` in `node_modules/react-native-threads/windows/RNThread.sln` folder to their solution, reference from their app.
+1. In Visual Studio add the `RNThread.sln` in `node_modules/rn-threads/windows/RNThread.sln` folder to their solution, reference from their app.
 2. Open up your `MainPage.cs` app
   - Add `using Thread.RNThread;` to the usings at the top of the file
   - Add `new RNThreadPackage()` to the `List<IReactPackage>` returned by the `Packages` method
@@ -90,7 +92,7 @@ Windows support is not yet implemented, but PRs are welcome if you want to give 
 In your application code (react components, etc.):
 
 ```javascript
-import { Thread } from 'react-native-threads';
+import { Thread } from 'rn-threads';
 
 // start a new react native JS process
 const thread = new Thread('path/to/thread.js');
@@ -107,7 +109,7 @@ thread.terminate();
 
 In your thread code (dedicated file such as `thread.js`):
 ```javascript
-import { self } from 'react-native-threads';
+import { self } from 'rn-threads';
 
 // listen for messages
 self.onmessage = (message) => {
@@ -117,7 +119,7 @@ self.onmessage = (message) => {
 self.postMessage('hello');
 ```
 
-Check out the examples directory in this repo for demos of using `react-native-threads`
+Check out the examples directory in this repo for demos of using `rn-threads`
 in a functioning app!
 
 ### Thread Lifecycle
@@ -173,7 +175,7 @@ to your project.
 
 ## Example App
 Included in this repository is a simple example application demonstrating basic
-usage of react-native-threads. Look at `examples/SimpleExample/README.md` for
+usage of rn-threads. Look at `examples/SimpleExample/README.md` for
 instructions on running it.  Here's how the app looks with the Reactotron debugger:
 
 ![SimpleExample Screen Capture](https://raw.githubusercontent.com/traviskn/react-native-threads/master/media/simplethreadexample.gif)
